@@ -48,7 +48,7 @@ body {
   margin: 0 10px;
 }
 .saved-active {
-  color: blue;
+  color: #15706c;
   border: 1px solid grey;
   padding: 5px;
 }
@@ -60,19 +60,31 @@ body {
 .save-button {
   position: absolute;
   top: 25px;
-  right: 25px;
-  border: 1px solid grey;
-  padding: 5px 10px;
-  background-color: lightseagreen;
+  right: 35px;
+  border: none;
+  padding: 12px 20px;
+  background-color: #1f9b95;
 }
 .save-button:hover {
-  background-color: green;
-  color: white;
+  background-color: #80a8a6;
+}
+
+.delete-button {
+  position: absolute;
+  top: 100px;
+  right: 35px;
+  border: none;
+  padding: 12px 20px;
+  background-color: #1f9b95;
+}
+
+.delete-button:hover {
+  background-color: #80a8a6;
 }
 
 .home-button {
   padding: 5px 10px;
-  background-color: lightskyblue;
+  background-color: #80a8a6;
 }
 
 .movie-warning {
