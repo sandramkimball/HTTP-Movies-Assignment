@@ -33,9 +33,7 @@ export default class Movie extends React.Component {
   };
 
   handleDelete = () => {
-    axios
-    .delete(`http://localhost:5000/api/movies/${this.state.movie.id}`)
-    .then(res=> {
+    axios.delete(`http://localhost:5000/api/movies/${this.state.movie.id}`).then(res=> {
       this.props.updateMovies(res.data);
       this.props.history.push('/movies');
     }) .catch(err=> console.log('Not deleted:', err.response))
@@ -47,23 +45,18 @@ export default class Movie extends React.Component {
       return <div>Loading Movie...</div>;
     }
 
-    
-    // const handleDelete = e => {
-    //   e.preventDefault();
-    //   axios
-    //   .delete(`http://localhost:5000/api/movies/${this.state.movie.id}`)
-    //   .then(res=> {
-    //     this.props.updateMovies(res.data);
-    //     this.props.history.push('/movies');
-    //   }) .catch(err=> console.log('Not deleted:', err.response))
-    // };
 
     return (
       <div className="save-wrapper">
         <MovieCard movie={this.state.movie} />
-        <button className="save-button" onClick={this.saveMovie}>Save</button>
 
-        <button className='delete-button' onClick={this.handleDelete}>Delete</button>
+        <div className = 'button-stack'>
+          <button className="save button" onClick={this.saveMovie}>Save</button>
+
+          <button className='delete button' onClick={this.handleDelete}>Delete</button>
+
+          <button className='edit button' onClick={()=> this.props.history.push(`/api/movies/${this.state.movie.id}`)}>Edit</button>
+        </div>
       </div>
     );
   }

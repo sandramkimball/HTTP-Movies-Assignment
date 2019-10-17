@@ -26,8 +26,9 @@ const App = () => {
       />
 
       <Route
-        path='movies/:id' render={props=> (
-        <UpdateForm {...props} movies={movies} updateMovies={setMovies}/> )} component={UpdateForm}
+        path='/api/movies/:id' render={props=> (
+        <UpdateForm {...props} movies={movies} updateMovies={setMovies}/> 
+        )} 
       />
 
     </>

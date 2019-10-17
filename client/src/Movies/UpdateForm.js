@@ -16,32 +16,36 @@ const UpdateForm = props => {
             movie=> `${movie.id}` === props.match.params.id
         );
         if (movieToEdit) setMovie(movieToEdit);
-    }, [props.items, props.match.params.id]);
+    }, [props.movies, props.match.params.id]);
 
     const handleChange = ev => {
         ev.persist();
         let value = ev.target.value;
-        if(ev.target.title === ''){
+        if(ev.target.title === 'title'){
             value = parseInt(value, 10)
         }
 
     setMovie({
         ...movie,
-        [ev.target.title]: value
+        [ev.target.name]: value
         });
     };
 
     const handleSubmit = e => {
         e.preventDefault();
-        axios.put(`http://localhost:5000/api/movies/${movie.id}`, movie)
-        .then(res => console.log('Updated Movies Res:', res));
-        props.history.push('/movies');
+        axios
+        .put(`http://localhost:5000/api/movies/${movie.id}`, movie)
+        .then(res => {
+            props.updateMovies(res.data);
+            props.history.push('/movies');
+        })
+        .catch(err=> console.log('Not updating on submit:', err.response))
     }
 
     return (
         <div>
-            <h2>Update Movie</h2>
             <form onSubmit={handleSubmit}>
+            <h2>Update Movie</h2>
                 <input
                 type='text'
                 name='title'
@@ -70,7 +74,7 @@ const UpdateForm = props => {
                 placeholder='Stars'
                 value={movie.stars}/>
 
-                <button className='save-button'>Update</button>
+                <button className='update button'>Update Info</button>
             </form>
         </div>
     )
