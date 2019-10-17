@@ -49,6 +49,20 @@ let movies = [
     director: "George P. Cosmatos",
     metascore: 89,
     stars: ["Kurt Russell", "Bill Paxton", "Sam Elliot"]
+  },
+  {
+    id: 6,
+    title: "Bram Stoker's Dracula",
+    director: "Francis Ford Coppola",
+    metascore: 74,
+    stars: ["Gary Oldman", "Keanu Reeves", "Winona Ryder"]
+  },
+  {
+    id: 7,
+    title: "Django Unchained",
+    director: "Quentin Tarantino",
+    metascore: 94,
+    stars: ["Jamie Foxx", "Christoph Waltz", "Leonardo DiCaprio", "Samuel L. Jackson"]
   }
 ];
 
