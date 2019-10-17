@@ -10,10 +10,11 @@ const initialMovie = {
 
 const UpdateForm = props => {
     const [movie, setMovie] = useState(initialMovie);
+    // const [movies, setMovies] = useState([])
 
     useEffect(()=> {
         const movieToEdit = props.movies.find(
-            movie=> `${movie.id}` === props.match.params.id
+            movie => `${movie.id}` === props.match.params.id
         );
         if (movieToEdit) setMovie(movieToEdit);
     }, [props.movies, props.match.params.id]);
@@ -21,7 +22,7 @@ const UpdateForm = props => {
     const handleChange = ev => {
         ev.persist();
         let value = ev.target.value;
-        if(ev.target.title === 'title'){
+        if(ev.target.name === 'metascore'){
             value = parseInt(value, 10)
         }
 
@@ -36,10 +37,15 @@ const UpdateForm = props => {
         axios
         .put(`http://localhost:5000/api/movies/${movie.id}`, movie)
         .then(res => {
-            props.updateMovies(res.data);
-            props.history.push('/movies');
+            const newMovies = props.movies.map(()=> {
+                if(res === props.match.params.id) props.setMovie(newMovies)
+            });
+            props.history.push('/api/movies');
         })
-        .catch(err=> console.log('Not updating on submit:', err.response))
+        .catch(err=> {
+            return (
+            <p>Please try again.</p>,
+            console.log('NOT SUBMITTING:', err.response))})
     }
 
     return (
@@ -74,7 +80,7 @@ const UpdateForm = props => {
                 placeholder='Stars'
                 value={movie.stars}/>
 
-                <button className='update button'>Update Info</button>
+                <button className='update button'>Update</button>
             </form>
         </div>
     )

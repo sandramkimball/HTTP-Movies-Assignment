@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: url('https://igotchamedia.com/app/uploads/2017/10/AdobeStock_67053509.jpeg');
+  background: url('http://2.bp.blogspot.com/-uuj0w-O7ieU/UL4GEZWKpFI/AAAAAAAAOa0/NYBD3r0iHFw/s1600/Popcorn+Wallpapers+01.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -58,7 +58,7 @@ body {
   margin: 1rem auto;
 }
 
-
+/* BUTTONS */
 .button-stack {
   position: absolute;
   right: 35px;
@@ -67,16 +67,20 @@ body {
   flex-direction: column;
 }
 
-
 .button {
   align-self: center;
   margin: 20px ;
   border: none;
-  padding: 12px 20px;
+  height: 40px;
+  width: 80px;
   background-color: #1f9b95;
+  cursor: pointer;
+
 }
 .button:hover {
   background-color: #80a8a6;
+  transform: scale(1.05);
+  color: white
 }
 .home-button {
   align-self: center;
@@ -96,12 +100,13 @@ body {
   text-align: center;
 }
 
+/* FORM */
 form{
   justify-content: center;
   align-content: space-between;
   display: flex;
   flex-direction: column;
-  width: 60%;
+  max-width: 45VW;
   height: 50vh;
   background-color: #fff;
   border: 0;
