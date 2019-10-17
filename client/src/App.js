@@ -20,16 +20,19 @@ const App = () => {
   };
 
   return (
-    <>
+    <section className='app-body'>
+    <div className='saved-list-container'>
       <SavedList list={savedList} />
+    </div>
+    <div>
       <Route exact path="/" component={MovieList} />
-
       <Route
         path="/movies/:id"
         render={props => {
           return <Movie {...props} addToSavedList={addToSavedList} updateMovies={setMovies} />;
         }}
       />
+    </div>
 
       <Route
         path='/api/movies/:id' render={props=> (
@@ -37,7 +40,7 @@ const App = () => {
         )} 
       />
 
-    </>
+    </section>
   );
 };
 

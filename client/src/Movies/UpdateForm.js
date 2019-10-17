@@ -49,7 +49,7 @@ const UpdateForm = props => {
     }
 
     return (
-        <div>
+        <div className='form-container'>
             <form onSubmit={handleSubmit}>
             <h2>Update Movie</h2>
                 <input

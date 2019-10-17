@@ -1,3 +1,13 @@
+.app-body{
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+}
+
+.app-body div{
+  width: 45vw;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -7,6 +17,7 @@ body {
   background-size: cover;
 }
 
+/* MOVIE CARD */
 .movie-card {
   background-color: #fff;
   box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
@@ -17,7 +28,7 @@ body {
   margin: 1rem auto;
   color: black;
   text-decoration: none;
-  width: 90%;
+  width: 100%;
 }
 
 .movie-director {
@@ -25,19 +36,22 @@ body {
   font-size: 0.8rem;
 }
 
+/* SAVED MOVIES */
 .saved-list {
   background-color: #fff;
-  border: 0;
-  box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
-    0 2px 4px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px #0000001f,
+    0 2px 4px #0000003d;
   padding: 1rem;
   cursor: pointer;
-  position: relative;
   margin: 1rem auto;
-  width: 75%;
+  max-width: 300px;
+  height: 80vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  position: fixed;
+  left: 20px;
 }
 
 .saved-list h3 {
@@ -60,11 +74,9 @@ body {
 
 /* BUTTONS */
 .button-stack {
-  position: absolute;
-  right: 35px;
-  top: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 .button {
@@ -101,12 +113,20 @@ body {
 }
 
 /* FORM */
-form{
+.form-container{
+  align-self: center;
+  display: flex;
   justify-content: center;
+  position: absolute;
+  right: 20vw;
+  top: 7vw
+}
+form{
+  justify-content:center;
   align-content: space-between;
   display: flex;
   flex-direction: column;
-  max-width: 45VW;
+  width: 100%;
   height: 50vh;
   background-color: #fff;
   border: 0;
@@ -115,14 +135,12 @@ form{
   padding: 1rem;
   margin: 2rem auto;
 }
-
 form input{
   align-content: space-between;
   margin: 10px auto;
   width: 90%;
   height: 30px;
 }
-
 form h2{
   text-align: center;
 }
